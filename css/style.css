@@ -39,13 +39,17 @@ body{
     background-image: linear-gradient(to bottom right, var(--pink-light), var(--cyan-light));
     background-attachment: fixed;
     font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
     color: var(--blue-dark);
     line-height: 1.5;
     overflow-x: hidden;
     -webkit-top-highlight-color: transparent;
     padding: 5vh 15px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
+
+}
+body.hide-scrolling{
+    overflow-y: hidden;
 }
 body::before{
     content: '';
@@ -84,6 +88,10 @@ section{
 .main{
     max-width: 1200px;
     margin: auto;
+    transition: all 0.5s ease-in-out;
+}
+.main.fade-out{
+    opacity: 0;
 }
 .container{
     padding: 0 40px;
@@ -391,6 +399,9 @@ button{
     width: 100%;
     z-index: 200;
     visibility: hidden;
+}
+.portfolio-popup.open{
+    visibility: visible;
     overflow-y: auto;
 }
 .pp-inner{
@@ -408,6 +419,13 @@ button{
     width: 100%;
     border: 1px solid var(--white-alpha-40);
     backdrop-filter: var(--backdrop-filter-blur);
+    opacity: 0;
+    transform: scale(0.9);
+}
+.portfolio-popup.open .pp-content{
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.5s ease;
 }
 .pp-header{
     position: relative;
