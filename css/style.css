@@ -307,6 +307,10 @@ button{
 }
 .about-text .tab-content{
     padding: 40px 0;
+    display: none;
+}
+.about-text .tab-content.active{
+    display: block;
 }
 .about-text .timeline-item{
     margin-bottom: 30px;
@@ -339,4 +343,37 @@ button{
 }
 .about-text .timeline-item h4 span{
     font-weight: 400;
+}
+.about-text .btn{
+    margin: 0 15px 15px 0;
+}
+
+/* -------------------
+    Portfolio Section
+-------------------- */
+.portfolio-section{
+    padding-bottom: 50px;
+}
+.portfolio-item{
+    width: calc((100% / 3) - 30px);
+    margin: 0 15px 30px;
+}
+.portfolio-item-thumbnail{
+    padding: 10px;
+    background-color: var(--white-alpha-25);
+    border: 1px solid var(--white-alpha-40);
+    border-radius: 10px;
+
+}
+.portfolio-item-thumbnail img{
+    width: 100%;
+    border-radius: 10px;
+}
+.portfolio-item h3{
+    font-size: 20px;
+    text-transform: capitalize;
+    margin: 20px 0;
+}
+.portfolio-item-details{
+    display: none;
 }
