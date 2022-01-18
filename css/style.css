@@ -70,7 +70,9 @@ h3, h4, h5, h6{
 img{
     max-width: 100%;
     vertical-align: middle;
-
+}
+ul{
+    list-style: none;
 }
 section{
     background-color: var(--white-alpha-25);
@@ -376,4 +378,71 @@ button{
 }
 .portfolio-item-details{
     display: none;
+}
+
+/* -------------------
+    Portfolio Popup
+-------------------- */
+.portfolio-popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 200;
+    visibility: hidden;
+    overflow-y: auto;
+}
+.pp-inner{
+    min-height: 100vh;
+    padding: 40px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pp-content{
+    background-color: var(--white-alpha-25);
+    padding: 30px;
+    border-radius: 30px;
+    max-width: 900px;
+    width: 100%;
+    border: 1px solid var(--white-alpha-40);
+    backdrop-filter: var(--backdrop-filter-blur);
+}
+.pp-header{
+    position: relative;
+}
+.pp-header .btn{
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -40px;
+    right: -40px;
+}
+.pp-thumbnail img{
+    border-radius: 10px;
+}
+.pp-header h3{
+    font-size: 25px;
+    text-transform: capitalize;
+    margin: 20px 0 15px;
+}
+.pp-body .description{
+    margin-bottom: 20px;
+}
+.pp-body .general-info li{
+    margin-bottom: 10px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+.pp-body .general-info li span{
+    font-weight: 300;
+}
+.pp-body .general-info li a{
+    text-transform: lowercase;
+    color: var(--main-color);
 }
