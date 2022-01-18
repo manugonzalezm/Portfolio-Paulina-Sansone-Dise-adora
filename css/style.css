@@ -84,6 +84,14 @@ section{
     min-height: calc(100vh - 70px);
     border-radius: 30px;
     backdrop-filter: var(--backdrop-filter-blur);
+    display: none;
+}
+section.active{
+    display: block;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+section.fade-out{
+    animation: fadeOut 0.5s ease-in-out forwards;
 }
 .main{
     max-width: 1200px;
@@ -186,6 +194,24 @@ button{
     color: var(--white);
 }
 
+/* Animation Keyframes */
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes fadeOut{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
 /* -------------------
     Header
 -------------------- */
@@ -196,6 +222,15 @@ button{
     width: 100%;
     z-index: 1;
     padding: 20px 0 0;
+}
+.header.active{
+    position: fixed;
+    top: 35px;
+    padding: 20px 15px;
+}
+.header.active .container{
+    max-width: 1200px;
+    margin: auto;
 }
 .header .nav-toggler{
     width: 50px;
@@ -216,6 +251,10 @@ button{
     width: 24px;
     background-color: var(--main-color);
     position: relative;
+    transition: background-color 0.3s ease;
+}
+.header.active .nav-toggler span{
+    background-color: transparent;
 }
 .header .nav-toggler span::before,
 .header .nav-toggler span::after{
@@ -231,12 +270,18 @@ button{
     left: 0;
     transform: translateY(-8px);
 }
+.header.active .nav-toggler span::before{
+    transform: rotate(45deg);
+}
 .header .nav-toggler span::after{
     right: 0;
     transform: translateY(8px);
 }
-.header .nav-toggler:hover span::before,
-.header .nav-toggler:hover span::after{
+.header.active .nav-toggler span::after{
+    transform: rotate(-45deg);
+}
+.header:not(.active) .nav-toggler:hover span::before,
+.header:not(.active) .nav-toggler:hover span::after{
     width: 50%;
 }
 .header .nav{
@@ -248,6 +293,9 @@ button{
     padding: 35px 15px;
     overflow-y: auto;
     visibility: hidden;
+}
+.header.active .nav{
+    visibility: visible;
 }
 .header .nav-inner{
     min-height: calc(100vh - 70px);
@@ -261,6 +309,11 @@ button{
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+.header.active .nav-inner{
+    opacity: 1;
 }
 .header .nav-inner ul li{
     text-align: center;
@@ -289,18 +342,18 @@ button{
 .header .nav-inner ul li a:hover::before{
     width: 100%;
 }
-
 .header .nav-inner ul li a:hover{
     color: var(--main-color);
 }
-
 
 /* -------------------
     Home Section
 -------------------- */
 .home-section{
-    display: flex;
     padding: 120px 0;
+}
+.home-section.active{
+    display: flex;
 }
 .home-text,
 .home-img{
