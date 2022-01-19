@@ -95,3 +95,40 @@ function portfolioItemDetails(portfolioItem){
     document.querySelector(".pp-body").innerHTML = 
     portfolioItem.querySelector(".portfolio-item-details").innerHTML;
 }
+
+/* ------------------- Portfolio Item Filter -------------------- */
+const filterContainer = document.querySelector(".portfolio-filter"),
+        filterBtns = filterContainer.children,
+        totalFilterBtn = filterBtns.length,
+        portfolioItems = document.querySelectorAll(".portfolio-item"),
+        totalPortfolioItem = portfolioItems.length;
+
+        console.log(filterContainer);
+        console.log(filterBtns);
+        console.log(totalFilterBtn);
+        console.log(portfolioItems);
+        console.log(totalPortfolioItem);
+        for(let i=0; i<totalFilterBtn; i++){
+            filterBtns[i].addEventListener("click", function(){
+                filterContainer.querySelector(".active").classList.remove("active");
+                this.classList.add("active");
+
+                const filterValue = this.getAttribute("data-filter");
+                console.log(filterValue)
+                for(let k=0; k<totalPortfolioItem; k++){
+                    console.log(portfolioItems[k])
+                    if(filterValue === portfolioItems[k].getAttribute("data-category")){
+                        portfolioItems[k].classList.remove("esconder");
+                        portfolioItems[k].classList.add("show");
+                    }
+                    else{
+                        portfolioItems[k].classList.remove("show");
+                        portfolioItems[k].classList.add("esconder");
+                    }
+                    if(filterValue === "all"){
+                        portfolioItems[k].classList.remove("esconder");
+                        portfolioItems[k].classList.add("show");
+                    }
+                }
+            })
+        }

@@ -235,6 +235,16 @@ button{
         transform: rotate(360deg);
     }
 }
+@keyframes showItem{
+    0%{
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
 /* -------------------
     Background Circles
@@ -835,6 +845,28 @@ button{
 .contact-info-item .social-links a:hover{
     color: var(--white);
     background-color: var(--main-color);
+}
+
+/* -------------------
+    Portfolio Filter
+-------------------- */
+.padd-15{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.portfolio-filter{
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.esconder{
+    display: none;
+}
+.portfolio .portfolio-item.show{
+    display: block;
+    animation: showItem .5s ease;
 }
 
 /* -------------------
